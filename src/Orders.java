@@ -7,12 +7,13 @@ public class Orders extends Inventory{
 
     ArrayList ordersArray = new ArrayList();
 
-    public void addProductToOrders(String newProductCode) {
+    // not working
+    public void addProduct(String newProductCode) {
         Iterator iterator = inventoryArray.iterator();
         while (iterator.hasNext()) {
             Product product = (Product) iterator.next();
             if (newProductCode.equals(product.getProductCode())) {
-                inventoryArray.add(product);
+                ordersArray.add(product);
                 break;
             }
         }

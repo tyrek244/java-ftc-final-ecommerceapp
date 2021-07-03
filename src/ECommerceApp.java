@@ -45,7 +45,7 @@ public class ECommerceApp {
 
             for (int i = 0; i < cart.length; i++) {
                 inventory.removeProduct(cart[i]);
-                userOrder.addProductToOrders(cart[i]);
+                userOrder.addProduct(cart[i]);
             }
 
             System.out.println("\nChecking out...\n\nCart:");
