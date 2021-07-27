@@ -10,7 +10,7 @@ public abstract class Product {
     protected double price;
     protected ECommerceProductType eCommerceProductType;
     protected String productCode;
-    protected int stock;
+    protected static int stock;
 
     public Product(double inputPrice, ECommerceProductType eCommerceProductTypeInputArgument) {
         this.eCommerceProductType = eCommerceProductTypeInputArgument;
@@ -21,7 +21,6 @@ public abstract class Product {
         String[] productDetails = lineFromFile.split(", ");
         price = Double.parseDouble(productDetails[2]);
         productCode = productDetails[1];
-        stock = 0;
     }
 
     public String getProductCode() {
@@ -30,14 +29,6 @@ public abstract class Product {
 
     public double getPrice() {
         return price;
-    }
-
-    public void increaseStock() {
-        stock += 1;
-    }
-
-    public void printStock() {
-        System.out.print("Stock: " + stock);
     }
 
     public abstract void printProductDetails();

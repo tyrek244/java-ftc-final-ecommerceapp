@@ -22,15 +22,12 @@ public class ECommerceApp {
                 if (contentsOfLine[0].equals("BOOK")) {
                     Book newBook = new Book(line);
                     inventory.addProduct(newBook);
-                    //inventory.checkProduct(newBook);
                 } else if (contentsOfLine[0].equals("COMPUTER")) {
                     Computer newComputer = new Computer(line);
                     inventory.addProduct(newComputer);
-                    //inventory.checkProduct(newComputer);
                 } else if (contentsOfLine[0].equals("PHONE")) {
                     Phone newPhone = new Phone(line);
                     inventory.addProduct(newPhone);
-                    //inventory.checkProduct(newPhone);
                 }
             }
 
@@ -42,35 +39,21 @@ public class ECommerceApp {
             System.out.println("\nEnter the products you would like to purchase (Enter each product's ID, separated by ','): ");
             String purchasedProducts = userInput.nextLine();
             String[] cart = purchasedProducts.split(",");
-
+            
             for (int i = 0; i < cart.length; i++) {
-                inventory.removeProduct(cart[i]);
-                userOrder.addProduct(cart[i]);
+                Product product = inventory.removeProduct(cart[i]);
+                if (product != null) {
+                    userOrder.addProduct(product);
+                }
             }
 
             System.out.println("\nChecking out...\n\nCart:");
             userOrder.printOrderUsingList2();
 
+            userOrder.printTotalPrice();
+
             System.out.println("\nFinal Inventory: ");
             inventory.printInventory();
-
-            /*OLD OBJECT CREATION-----------------------------------------------
-            Book javaBook = new Book("How to program in java", "John", 42, ECommerceProductType.BOOK);
-
-            Book cPlusPlusBook = new Book("How to program in c++", "Sally", 30, ECommerceProductType.BOOK);
-
-            Computer computer = new Computer("Mac", 1200, ECommerceProductType.COMPUTER);
-
-            Phone phone = new Phone("IPhone", 6, 6, 600, ECommerceProductType.PHONE);
-
-            Orders myOrders = new Orders();
-            myOrders.addProduct(javaBook);
-            myOrders.addProduct(cPlusPlusBook);
-            myOrders.addProduct(computer);
-            myOrders.addProduct(phone);
-
-            myOrders.printOrderUsingList1();
-             */
 
         } catch (Exception e){
             System.out.println("An exception occurred during your program");

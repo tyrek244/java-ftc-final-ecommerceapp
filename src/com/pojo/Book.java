@@ -22,6 +22,7 @@ public class Book extends Product{
         String[] productInfo = lineFromFile.split(", ");
         title = productInfo[3];
         author = productInfo[4];
+        //stock++;
     }
 
     public void printProductDetails(){
