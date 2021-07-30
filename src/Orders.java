@@ -7,19 +7,11 @@ public class Orders {
 
     ArrayList ordersArray = new ArrayList();
 
-    // not working
     public void addProduct(Product product) {
         ordersArray.add(product);
     }
 
-    public void printOrderUsingList1() {
-        for (int i = 0; i < ordersArray.size(); i++) {
-            Product product = (Product) ordersArray.get(i);
-            product.printProductDetails();
-        }
-    }
-
-    public void printOrderUsingList2() {
+    public void printOrder() {
         Iterator iterator = ordersArray.iterator();
         while (iterator.hasNext()){
             Product product = (Product) iterator.next();

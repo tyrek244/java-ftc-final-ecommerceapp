@@ -10,7 +10,6 @@ public abstract class Product {
     protected double price;
     protected ECommerceProductType eCommerceProductType;
     protected String productCode;
-    protected static int stock;
 
     public Product(double inputPrice, ECommerceProductType eCommerceProductTypeInputArgument) {
         this.eCommerceProductType = eCommerceProductTypeInputArgument;

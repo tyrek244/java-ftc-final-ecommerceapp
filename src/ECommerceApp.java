@@ -1,7 +1,6 @@
 import com.pojo.*;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -47,10 +46,11 @@ public class ECommerceApp {
                 }
             }
 
-            System.out.println("\nChecking out...\n\nCart:");
-            userOrder.printOrderUsingList2();
-
+            System.out.println("\nChecking out...");
             userOrder.printTotalPrice();
+
+            System.out.println("\nCart:");
+            userOrder.printOrder();
 
             System.out.println("\nFinal Inventory: ");
             inventory.printInventory();

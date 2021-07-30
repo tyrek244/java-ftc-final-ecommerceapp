@@ -21,7 +21,5 @@ public class Phone extends Product{
         System.out.println("Product ID: " + productCode);
         System.out.println("Price: $" + price);
         System.out.println("Brand: " + brand);
-        //System.out.println("Height: " + height);
-        //System.out.println("Width: " + width);
     }
 }
