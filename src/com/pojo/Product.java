@@ -1,29 +1,23 @@
 package com.pojo;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import com.exceptions.InvalidPriceException;
 
 public abstract class Product {
 
     protected double price;
-    protected ECommerceProductType eCommerceProductType;
-    protected String productCode;
+    protected String productID;
 
-    public Product(double inputPrice, ECommerceProductType eCommerceProductTypeInputArgument) {
-        this.eCommerceProductType = eCommerceProductTypeInputArgument;
-        this.price = inputPrice;
-    }
-
-    public Product(String lineFromFile) {
+    public Product(String lineFromFile) throws InvalidPriceException {
         String[] productDetails = lineFromFile.split(", ");
         price = Double.parseDouble(productDetails[2]);
-        productCode = productDetails[1];
+        if (price < 0) {
+            throw new InvalidPriceException("Invalid price provided.");
+        }
+        productID = productDetails[1];
     }
 
-    public String getProductCode() {
-        return productCode;
+    public String getProductID() {
+        return productID;
     }
 
     public double getPrice() {

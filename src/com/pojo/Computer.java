@@ -1,14 +1,11 @@
 package com.pojo;
 
+import com.exceptions.InvalidPriceException;
+
 public class Computer extends Product {
     String brand;
 
-    public Computer(String brand, double inputPrice, ECommerceProductType eCommerceProductType) {
-        super(inputPrice, eCommerceProductType);
-        this.brand = brand;
-    }
-
-    public Computer(String lineFromFile) {
+    public Computer(String lineFromFile) throws InvalidPriceException {
         super(lineFromFile);
         String[] productInfo = lineFromFile.split(", ");
         brand = productInfo[3];
@@ -17,7 +14,7 @@ public class Computer extends Product {
     @Override
     public void printProductDetails() {
         System.out.println("Product Type: COMPUTER");
-        System.out.println("Product ID: " + productCode);
+        System.out.println("Product ID: " + productID);
         System.out.println("Price: $" + price);
         System.out.println("Brand: " + brand);
     }
