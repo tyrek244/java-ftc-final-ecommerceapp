@@ -13,10 +13,12 @@ public class Orders {
 
     public void printOrder() {
         Iterator iterator = ordersArray.iterator();
+        int productCount = 1;
         while (iterator.hasNext()){
             Product product = (Product) iterator.next();
-            System.out.println("——————————————————");
+            System.out.println("——————————————————\n" + productCount + ".\n");
             product.printProductDetails();
+            productCount = productCount + 1;
         }
         System.out.println("——————————————————");
     }

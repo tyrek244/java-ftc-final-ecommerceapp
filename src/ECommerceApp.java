@@ -30,7 +30,7 @@ public class ECommerceApp {
                 }
             }
 
-            System.out.println("Welcome to my eCommerceApplication\n");
+            System.out.println("Welcome to my eCommerceApplication. You can purchase products from this online inventory.\n");
             System.out.println("Inventory:");
             inventory.printInventory();
 
@@ -38,7 +38,7 @@ public class ECommerceApp {
             System.out.println("\nEnter the products you would like to purchase (Enter each product's ID, separated by ','): ");
             String purchasedProducts = userInput.nextLine();
             String[] cart = purchasedProducts.split(",");
-            
+
             for (int i = 0; i < cart.length; i++) {
                 Product product = inventory.removeProduct(cart[i]);
                 if (product != null) {
@@ -52,10 +52,10 @@ public class ECommerceApp {
             System.out.println("\nCart:");
             userOrder.printOrder();
 
-            System.out.println("\nFinal Inventory: ");
+            System.out.println("\n\n\nFinal Inventory: ");
             inventory.printInventory();
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("An exception occurred during your program");
             System.out.println(e.getMessage());
         }
